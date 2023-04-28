@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\JAVA-WEB\SoapWS_Score\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1749425397.index
+2759320118.index
+3829274180.index
+849664368.index
+1570558992.index
+2713800481.index
+2432128314.index

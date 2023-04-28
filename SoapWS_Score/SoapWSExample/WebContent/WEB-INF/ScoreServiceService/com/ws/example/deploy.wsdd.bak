@@ -1,0 +1,55 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ScoreServiceService WSDL service -->
+
+  <service name="ScoreService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://example.ws.com"/>
+      <parameter name="wsdlServiceElement" value="ScoreServiceService"/>
+      <parameter name="schemaQualified" value="http://example.ws.com"/>
+      <parameter name="wsdlServicePort" value="ScoreService"/>
+      <parameter name="className" value="com.ws.example.ScoreServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ScoreService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="reset" qname="operNS:reset" xmlns:operNS="http://example.ws.com" soapAction="" >
+      </operation>
+      <operation name="increaseTies" qname="operNS:increaseTies" xmlns:operNS="http://example.ws.com" returnQName="retNS:increaseTiesReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getTies" qname="operNS:getTies" xmlns:operNS="http://example.ws.com" returnQName="retNS:getTiesReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getLosses" qname="operNS:getLosses" xmlns:operNS="http://example.ws.com" returnQName="retNS:getLossesReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getWins" qname="operNS:getWins" xmlns:operNS="http://example.ws.com" returnQName="retNS:getWinsReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="updateScore" qname="operNS:updateScore" xmlns:operNS="http://example.ws.com" returnQName="retNS:updateScoreReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:Score" xmlns:rtns="http://example.ws.com" soapAction="" >
+        <parameter qname="pns:wins" xmlns:pns="http://example.ws.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:losses" xmlns:pns="http://example.ws.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ties" xmlns:pns="http://example.ws.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="increaseLosses" qname="operNS:increaseLosses" xmlns:operNS="http://example.ws.com" returnQName="retNS:increaseLossesReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="increaseWins" qname="operNS:increaseWins" xmlns:operNS="http://example.ws.com" returnQName="retNS:increaseWinsReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getScore" qname="operNS:getScore" xmlns:operNS="http://example.ws.com" returnQName="retNS:getScoreReturn" xmlns:retNS="http://example.ws.com" returnType="rtns:Score" xmlns:rtns="http://example.ws.com" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getLosses increaseWins increaseLosses updateScore reset getWins increaseTies getTies getScore"/>
+
+      <typeMapping
+        xmlns:ns="http://example.ws.com"
+        qname="ns:Score"
+        type="java:com.ws.example.Score"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
