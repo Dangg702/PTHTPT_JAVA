@@ -1,0 +1,103 @@
+package com.ws;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.jws.WebService;
+
+@WebService(endpointInterface = "com.ws.DictServices")
+public class DictServicesImpl implements DictServices{
+	@Override
+	public String dictENtoVn(String word) {
+		String result = null;
+		
+		try {
+			Connection conn = JDBCUtil.getConnection();
+			
+			String sql = "SELECT * FROM dict Where word = ?"; 
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, word);
+						
+			ResultSet rs = pstm.executeQuery();
+			
+			while (rs.next()) {				 
+				result=rs.getString("mean");
+			}
+			conn.close();
+			pstm.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public String addWord(String word, String mean) {
+		String result = null;
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			
+			String sql = "Insert into dict(id, word, mean) Values(?, ?, ?)";
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+
+			pstmt.setString(2, word);
+			pstmt.setString(3, mean);
+			
+			pstmt.executeUpdate();
+			
+			result = "Add word successfully";
+			connection.close();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public String updateMean(String word, String mean) {
+		String result = null;
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			
+			String sql = "update dict set mean = ? where word = ?";
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+
+			pstmt.setString(1, mean);
+			pstmt.setString(2, word);
+			
+			pstmt.executeUpdate();
+			
+			result = "Update mean successfully";
+			connection.close();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public String delete(String word) {
+		String result = null;
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			
+			String sql = "delete from dict where word = ?";
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+
+			pstmt.setString(1, word);
+			
+			pstmt.executeUpdate();
+			
+			result = "Delete word successfully";
+			connection.close();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+}

@@ -1,0 +1,39 @@
+package com.ws;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.jws.WebService;
+
+@WebService(endpointInterface = "com.ws.DictServices")
+public class DictServicesImpl {
+	public String dictENtoVn(String word) {
+		String result = null;
+		
+		try {
+			Connection connection = JDBCUtil.getConnection();
+			
+			String sql = "SELECT * FROM dict JOIN detail ON dict.id = detail.id Where word = ?"; 
+			PreparedStatement pstm = connection.prepareStatement(sql);
+			pstm.setString(1, word);
+						
+			ResultSet rs = pstm.executeQuery();
+			
+			while (rs.next()) {				 
+				String x = rs.getString("detail");
+				System.out.println(x);
+				result = x;
+			}
+			System.out.println("Bạn đã thực thi: "+ sql);
+			if(result == null) {
+				result = "Không tìm thấy từ cần tra!";
+			}
+			JDBCUtil.closeConnection(connection);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+}

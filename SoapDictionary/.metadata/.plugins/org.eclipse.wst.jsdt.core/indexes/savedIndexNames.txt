@@ -1,0 +1,9 @@
+INDEX VERSION 1.4+D:\JAVA-WEB\SoapDictionary\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4035278408.index
+1207623461.index
+2431931144.index
+2803830549.index
+2797986930.index
+3625020829.index
+1878966427.index
+1224532428.index

@@ -1,0 +1,144 @@
+<%@page contentType="text/html;charset=UTF-8"%>
+<HTML>
+<HEAD>
+<TITLE>Inputs</TITLE>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: Arial, sans-serif;
+	}
+	
+	header {
+		background-color: #333;
+		color: #fff;
+		padding: 20px;
+		text-align: center;
+	}
+	
+	main {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+		width: 500px;
+		height: 450px;
+	}
+	
+	form label {
+		display: block;
+		margin-bottom: 10px;
+	}
+	
+	form input[type="text"] {
+		padding: 5px;
+		border: none;
+		border-bottom: 2px solid #333;
+		font-size: 16px;
+		width: 70%;
+		margin-right: 10px;
+	}
+	
+	form button[type="submit"] {
+		padding: 5px 10px;
+		background-color: #333;
+		color: #fff;
+		border: none;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	
+	.result {
+		margin-top: 20px;
+	}
+	
+	.result h2 {
+		margin-bottom: 10px;
+	}
+	
+	.result p {
+		margin: 5px 0;
+	}
+	
+	footer {
+		background-color: #333;
+		color: #fff;
+		padding: 10px;
+		text-align: center;
+	}
+	
+	footer a {
+		color: red;
+	}
+	
+	
+</style>
+
+</HEAD>
+<BODY>
+
+	<%
+		String method = request.getParameter("method");
+		int methodID = 0;
+		if (method == null)
+			methodID = -1;
+
+		boolean valid = true;
+
+		if (methodID != -1)
+			methodID = Integer.parseInt(method);
+		switch (methodID) {
+
+		case 1:
+			valid = false;
+	%>
+	<div style="position: relative; top: 87px;">
+		<img style="opacity: 0.5; width: 100%; height: 76%;" alt="" src="anh.jpg">
+	</div>
+	
+	
+	<div style="position: absolute; width: 100%; top: 0;">
+	
+		<header>
+			<h1>Từ điển Anh - Việt</h1>
+		</header>
+		
+		<main> 
+			<br><br><br><br><br>
+			
+			<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+				<INPUT TYPE="HIDDEN" NAME="method"
+					VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+	
+				<input class="form-control me-2" type="text" id="search" name="tensp16"
+					placeholder="Nhập từ cần tìm...">
+				<button type="submit" VALUE="Invoke" class="btn btn-outline-success"
+					style="margin-top: -34px; margin-left: 337px;"><b>Tìm kiếm</b></button>
+			</FORM>	
+		</main>
+		
+		<footer>
+			<p>
+				&copy; 2023 Từ điển Anh - Việt. Được tạo bởi <a	href="https://example.com">Nhóm 1</a>.
+			</p>
+		</footer>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+	</div>
+
+	<%
+		break;
+		}
+		if (valid) {
+	%>
+		<h1 style="color: blue; text-align: center; margin-top: 200px;" >
+			Chọn Một Phương Pháp Để Kiểm Tra!!!
+		</h1>
+	<%
+		}
+	%>
+
+</BODY>
+</HTML>

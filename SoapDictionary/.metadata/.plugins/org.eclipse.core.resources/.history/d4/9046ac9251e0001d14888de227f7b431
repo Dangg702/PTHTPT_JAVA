@@ -1,0 +1,7 @@
+package com.ws;
+
+import lombok.Data;
+
+public class Dictionary {
+
+}

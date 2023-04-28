@@ -1,0 +1,70 @@
+<%@page contentType="text/html;charset=UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<HTML>
+<HEAD>
+<TITLE>Kết quả tra cứu</TITLE>
+</HEAD>
+<STYLE>
+BODY {
+font-family: Arial, sans-serif;
+font-size: 30px;
+padding: 25px;
+}
+H1 {
+}
+
+</STYLE>
+<BODY>
+<H4>Kết quả tra cứu</H4>
+
+<jsp:useBean id="sampleDictServicesImplProxyid" scope="session" class="com.ws.DictServicesImplProxy" />
+<%
+if (request.getParameter("endpoint") != null && request.getParameter("endpoint").length() > 0)
+sampleDictServicesImplProxyid.setEndpoint(request.getParameter("endpoint"));
+%>
+
+<%
+String method = request.getParameter("method");
+int methodID = 0;
+if (method == null) methodID = -1;
+
+if(methodID != -1) methodID = Integer.parseInt(method);
+boolean gotMethod = false;
+
+try {
+switch (methodID){ 
+case 1:
+        gotMethod = true;
+        String word_1id=  request.getParameter("word");
+            java.lang.String word_1idTemp = null;
+        if(!word_1id.equals("")){
+         word_1idTemp  = word_1id;
+        }
+        java.lang.String dictENtoVn13mtemp = sampleDictServicesImplProxyid.dictENtoVn(word_1idTemp);
+if(dictENtoVn13mtemp == null){
+%>
+<%=dictENtoVn13mtemp %>
+<%
+}else{
+        String tempResultreturnp14 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(dictENtoVn13mtemp));
+        %>
+        <%= tempResultreturnp14 %>
+        <%
+}
+break;
+}
+} catch (Exception e) { 
+%>
+Exception: <%= org.eclipse.jst.ws.util.JspUtils.markup(e.toString()) %>
+Message: <%= org.eclipse.jst.ws.util.JspUtils.markup(e.getMessage()) %>
+<%
+return;
+}
+if(!gotMethod){
+%>
+result: N/A
+<%
+}
+%>
+</BODY>
+</HTML>
