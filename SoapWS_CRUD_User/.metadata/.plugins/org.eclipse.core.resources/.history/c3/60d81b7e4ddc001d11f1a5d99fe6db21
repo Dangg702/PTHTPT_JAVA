@@ -1,0 +1,5 @@
+package com.gpcoder.ws;
+
+public class UserService {
+
+}

@@ -1,0 +1,15 @@
+package com.gpcoder.ws;
+ 
+import lombok.Data;
+// lombok là thư viện tự sinh các hàm getter/setter/contructor/toString... và tinh gọn chúng
+//@Data là cách dùng nhanh khi muốn thêm tất cả các annotation của Lombok vào 1 class
+//@Data --> sinh các hàm get/set/contructor một cách tự động
+//Nếu muốn loại bỏ getter() method -->  @Getter(AccessLevel.NONE)
+//
+
+@Data
+public class User {
+ 
+    private Integer id;
+    private String username;
+}

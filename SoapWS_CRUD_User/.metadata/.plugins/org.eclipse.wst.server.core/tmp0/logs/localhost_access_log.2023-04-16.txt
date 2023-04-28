@@ -1,0 +1,16 @@
+127.0.0.1 - - [16/Apr/2023:19:04:54 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:04:55 +0700] "GET /SoapWSUser/WEB-INF/classes/com/gpcoder/ws/SoapPublisher.java HTTP/1.1" 404 682
+127.0.0.1 - - [16/Apr/2023:19:07:25 +0700] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [16/Apr/2023:19:07:38 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Result.jsp HTTP/1.1" 200 118
+127.0.0.1 - - [16/Apr/2023:19:07:38 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Method.jsp HTTP/1.1" 200 348
+127.0.0.1 - - [16/Apr/2023:19:07:38 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Input.jsp HTTP/1.1" 200 127
+127.0.0.1 - - [16/Apr/2023:19:07:38 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/TestClient.jsp HTTP/1.1" 200 586
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:07:39 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/TestClient.jsp HTTP/1.1" 200 586
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:07:39 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Method.jsp HTTP/1.1" 200 348
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:07:39 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Input.jsp HTTP/1.1" 200 127
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:07:39 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Result.jsp? HTTP/1.1" 200 118
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:08:00 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Input.jsp?method=10 HTTP/1.1" 200 296
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:08:02 +0700] "POST /SoapWSUserClient/sampleSoapPublisherProxy/Result.jsp HTTP/1.1" 200 175
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:08:18 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Input.jsp?method=2 HTTP/1.1" 200 295
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:08:20 +0700] "GET /SoapWSUserClient/sampleSoapPublisherProxy/Input.jsp?method=2 HTTP/1.1" 200 295
+0:0:0:0:0:0:0:1 - - [16/Apr/2023:19:08:21 +0700] "POST /SoapWSUserClient/sampleSoapPublisherProxy/Result.jsp HTTP/1.1" 200 178

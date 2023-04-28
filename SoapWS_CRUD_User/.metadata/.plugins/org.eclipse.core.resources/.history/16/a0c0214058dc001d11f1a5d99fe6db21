@@ -1,0 +1,5 @@
+package com.gpcoder.ws.test;
+
+public class SoapClient {
+
+}

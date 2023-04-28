@@ -1,0 +1,9 @@
+127.0.0.1 - - [21/Apr/2023:20:23:57 +0700] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [21/Apr/2023:20:33:01 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [21/Apr/2023:20:33:02 +0700] "GET /SoapWSUserClient/WEB-INF/classes/com/gpcoder/ws/client/SoapClient.java HTTP/1.1" 404 682
+127.0.0.1 - - [21/Apr/2023:20:34:22 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [21/Apr/2023:20:34:22 +0700] "GET /SoapWSUser/WEB-INF/classes/com/gpcoder/ws/SoapPublisher.java HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [21/Apr/2023:20:34:48 +0700] "GET /ws/users HTTP/1.1" 404 763
+0:0:0:0:0:0:0:1 - - [21/Apr/2023:20:34:59 +0700] "GET /ws/users?wsdl HTTP/1.1" 404 763
+0:0:0:0:0:0:0:1 - - [21/Apr/2023:20:35:04 +0700] "GET /ws/users?wsdl HTTP/1.1" 404 763
+0:0:0:0:0:0:0:1 - - [21/Apr/2023:20:35:04 +0700] "GET /favicon.ico HTTP/1.1" 404 762
